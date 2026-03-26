@@ -1,0 +1,33 @@
+<div class="container">
+  @if (reading === true) {
+    @if (readLoading) {
+      <div style="color: #b6b6b6">Fetching a story...</div>
+    } @else if (!readLoading && readError) {
+      <div style="color: brown">An error occured while fetching a story</div>
+    } @else if (note) {
+      <div class="story">{{ note.text }}</div>
+      @if (note.author) {
+        <i class="author">{{ note.author }}</i>
+      } @else {
+        <i class="author">Anonymous</i>
+      }
+    }
+    <div class="buttons">
+      <button (click)="getStory()" [disabled]="readLoading">Refresh</button>
+      <button (click)="reading = false">Create</button>
+    </div>
+  } @else {
+    <textarea type="text" rows="10" placeholder="Start typing..." maxlength="10000" [(ngModel)]="text"></textarea>
+    <div class="buttons">
+      <button (click)="reading = true">Back</button>
+      <button (click)="writeStory()" [disabled]="text.length === 0 || writeLoading">Submit</button>
+    </div>
+    @if (writeLoading) {
+      <div style="color: #b6b6b6">Publishing the story...</div>
+    } @else if (!writeLoading && writeErrorMessage) {
+      <div style="color: brown">{{ writeErrorMessage }}</div>
+    } @else if (writeSuccess) {
+      <div style="color: green">Your story was published!</div>
+    }
+  }
+</div>

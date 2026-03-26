@@ -1,0 +1,7 @@
+node_modules
+dist
+.angular/cache
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
