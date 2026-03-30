@@ -18,6 +18,7 @@
     </div>
   } @else {
     <textarea type="text" rows="10" placeholder="Start typing..." maxlength="10000" [(ngModel)]="text"></textarea>
+    <input class="author-input" type="text" placeholder="Author (optional)" maxlength="100" [(ngModel)]="author" />
     <div class="buttons">
       <button (click)="reading = true">Back</button>
       <button (click)="writeStory()" [disabled]="text.length === 0 || writeLoading">Submit</button>

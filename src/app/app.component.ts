@@ -27,6 +27,7 @@ export class AppComponent implements OnInit {
 
   // Write state
   public text = '';
+  public author = '';
   public writeLoading = false;
   public writeErrorMessage = '';
   public writeSuccess = false;
@@ -64,7 +65,7 @@ export class AppComponent implements OnInit {
 
     this.writeLoading = true;
 
-    (this.http.post(`${environment.apiUrl}/note`, { text: this.text })).subscribe({
+    (this.http.post(`${environment.apiUrl}/note`, { text: this.text, author: this.author })).subscribe({
       next: () => {
         this.writeSuccess = true;
         this.writeLoading = false;
