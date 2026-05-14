@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://[TBD].com',
+  apiUrl: 'https://notebook-backend-production.up.railway.app',
 };
